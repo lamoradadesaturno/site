@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Información de WiFi</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 16px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 480px;
+            margin: auto;
+            padding: 16px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        .section {
+            margin-bottom: 24px;
+        }
+        .section-title {
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+        .info {
+            margin-bottom: 4px;
+        }
+        .copy-button {
+            margin-top: 8px;
+            padding: 8px 16px;
+            font-size: 14px;
+            color: white;
+            background-color: #007bff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .copy-button:active {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="section">
+            <div class="section-title">Información de la Red WiFi</div>
+            <div class="info">Nombre de la Red (SSID): <span id="nombreRed">LaMorada</span></div>
+            <button class="copy-button" onclick="copiarAlPortapapeles('nombreRed')">Copiar Nombre de Red</button>
+        </div>
+        <div class="section">
+            <div class="section-title">Contraseña de la Red</div>
+            <div class="info">Contraseña: <span id="contrasenaRed">lamorada2023</span></div>
+            <button class="copy-button" onclick="copiarAlPortapapeles('contrasenaRed')">Copiar Contraseña</button>
+        </div>
+    </div>
+
+    <script>
+        function copiarAlPortapapeles(elementId) {
+            const texto = document.getElementById(elementId).innerText;
+            navigator.clipboard.writeText(texto).then(() => {
+                alert('Texto copiado al portapapeles');
+            }).catch(err => {
+                console.error('Error al copiar al portapapeles: ', err);
+            });
+        }
+    </script>
+</body>
+</html>
